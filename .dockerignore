@@ -1,21 +1,14 @@
+# golang tmp
 tmp/
+
+# compiled files 
 main
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# next.js build output
+.next
 
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-/dist
+# Dependency directories
+node_modules/
 
 # misc
 .DS_Store
