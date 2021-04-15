@@ -278,7 +278,7 @@
   dependencies:
     "array-filter" "^1.0.0"
 
-"axios@*", "axios@^0.21.1":
+"axios@*":
   "integrity" "sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA=="
   "resolved" "https://registry.npmjs.org/axios/-/axios-0.21.1.tgz"
   "version" "0.21.1"

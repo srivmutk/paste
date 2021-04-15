@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import useSWR from "swr";
 import axios from "axios";
+import { time } from "console";
 
 dayjs.extend(utc);
 
@@ -25,7 +26,7 @@ const SERVER_URL = process.env.SERVER_URL as string;
 const ErrorMsg = ({ Msg }: ErrorMsg) => {
   return (
     <>
-      <span className="bg-yellow-500 text-black rounded-xl p-5 mb-3 mt-3">
+      <span className=" text-black bg-yellow-600 error-color rounded-xl p-5 mb-3 mt-3">
         {Msg}
       </span>
     </>
@@ -44,26 +45,32 @@ const IndexPage = () => {
   } = useForm<FormInputs>();
 
   const onSubmit = (data: FormInputs) => {
-    const axiosFn = async (expiry: null | string) => {
-      await axios
-        .post(`${SERVER_URL}/p-create`, {
+    const fetchFn = (expiry: null | string) => {
+      fetch(`${SERVER_URL}/p-create`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify({
           title: data.Title,
           text: data.Text,
           language: data.Language,
           expires_at: expiry,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Success", data);
         })
-        .then((res) => {
-          console.log(`${SERVER_URL}/p/${res.data}`);
-        })
-        .catch((error) => {
-          console.log(error);
+        .catch((err) => {
+          console.error("Error:", err);
         });
     };
 
-    if (data.ExpiresAt == "never") {
-      axiosFn(null);
+    if (data.ExpiresAt === "never") {
+      fetchFn(null);
     } else {
-      axiosFn(data.ExpiresAt);
+      fetchFn(data.ExpiresAt);
     }
 
     reset();
@@ -90,7 +97,7 @@ const IndexPage = () => {
           Create a New Paste
         </h1>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="flex flex-col flex-1 flex-wrap pb-10">
+          <div className="flex flex-col flex-wrap pb-10">
             {errors.Title && <ErrorMsg Msg="Title Required" />}
             {errors.Text && <ErrorMsg Msg="Body Required" />}
             <div className="flex flex-wrap space-x-2 lg:space-x-5 xl:space-x-5 md:space-x-5 sm:space-x-1">
@@ -100,7 +107,7 @@ const IndexPage = () => {
                 <input
                   {...register("Title", { required: true })}
                   placeholder="Untitled"
-                  className="text-white p-3 w-full text-md bg-gray-600 rounded-md"
+                  className="text-white p-3 text-md bg-gray-600 rounded-md"
                 ></input>
               </div>
 
@@ -172,6 +179,7 @@ const IndexPage = () => {
               <pre>
                 <textarea
                   {...register("Text", { required: true })}
+                  spellCheck="false"
                   placeholder="fmt.Println('Placeholder Stuff)'"
                   className="text-white textarea-c textarea-h textarea-w text-md p-10 block rounded-xl"
                 ></textarea>
@@ -182,10 +190,10 @@ const IndexPage = () => {
                 }
 
                 .textarea-h {
-                  height: 65vh;
+                  height: 70vh;
                 }
                 .textarea-w {
-                  width: 65vw;
+                  width: 70vw;
                 }
               `}</style>
             </div>

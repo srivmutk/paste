@@ -6,7 +6,6 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
-	"time"
 
 	"github.com/jackc/pgx/v4/pgxpool"
 	"github.com/joho/godotenv"
@@ -14,25 +13,6 @@ import (
 
 // Conn .. pgxpool DB - Global Var
 var Conn *pgxpool.Pool
-
-// Create All
-func Create() {
-	for {
-		// Get our queries and statements to create all of our necessary tables
-		sqlMain, err := ioutil.ReadFile("create.sql")
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		createSchema, err := Conn.Exec(context.Background(), string(sqlMain))
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		log.Println(createSchema)
-		time.Sleep(2 * time.Hour)
-	}
-}
 
 // Init - Pgx DB connection
 func Init() {
@@ -46,4 +26,17 @@ func Init() {
 		fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
 		os.Exit(1)
 	}
+
+	// Get our queries and statements to create all of our necessary tables
+	sqlMain, err := ioutil.ReadFile("create.sql")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	createSchema, err := Conn.Exec(context.Background(), string(sqlMain))
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Println(createSchema)
 }

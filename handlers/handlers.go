@@ -31,18 +31,18 @@ func CreatePaste(c echo.Context) (err error) {
 
 	// Use snowflake for unique IDs and return id in our response body
 	node, err := snowflake.NewNode(1)
-	var row int
+	if err != nil {
+		return c.String(http.StatusNotFound, err.Error())
+	}
+	var id int
 	err = connection.Conn.QueryRow(context.Background(), "INSERT INTO pastes (id, title, text, expires_at, language) VALUES ($1, $2, $3, $4, $5) RETURNING id;",
-		node.Generate(), u.Title, u.Text, u.ExpiresAt, u.Language).Scan(&row)
+		node.Generate(), u.Title, u.Text, u.ExpiresAt, u.Language).Scan(&id)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
 		return c.String(http.StatusNotFound, err.Error())
 	}
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
-		return c.String(http.StatusNotFound, err.Error())
-	}
-	return c.JSON(http.StatusOK, row)
+
+	return c.JSON(http.StatusOK, id)
 }
 
 // GetPaste ... Get a paste where id equals req query params and is not expired
