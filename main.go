@@ -1,14 +1,12 @@
 package main
 
 import (
-	"log"
 	"net/http"
 	"time"
 
 	connection "github.com/Sysnomid/paste/backend/connection"
 	handlers "github.com/Sysnomid/paste/backend/handlers"
 	models "github.com/Sysnomid/paste/backend/models"
-	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
@@ -18,18 +16,12 @@ func main() {
 
 	go handlers.DeleteExpired()
 
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
-
 	e := echo.New()
 
 	e.Validator = models.MainValidator
 
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
 		AllowOrigins: []string{"*"},
-		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept},
 	}))
 
 	config := middleware.RateLimiterConfig{

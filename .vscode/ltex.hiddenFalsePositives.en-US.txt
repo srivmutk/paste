@@ -1,2 +1,0 @@
-{"rule":"WORD_CONTAINS_UNDERSCORE","sentence":"^\\QChange CORS_ORIGIN in .env\\E$"}
-{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qpaste.sysnomid.com\\E$"}

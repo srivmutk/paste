@@ -6,6 +6,7 @@ import utc from "dayjs/plugin/utc";
 import useSWR from "swr";
 import axios from "axios";
 import { time } from "console";
+import { exec } from "child_process";
 
 dayjs.extend(utc);
 
@@ -46,25 +47,29 @@ const IndexPage = () => {
 
   const onSubmit = (data: FormInputs) => {
     const fetchFn = (expiry: null | string) => {
+      let MainHeaders = new Headers();
+      MainHeaders.append("Content-Type", "application/json");
+
+      const reqData = JSON.stringify({
+        title: data.Title,
+        text: data.Text,
+        language: data.Language,
+        expires_at: expiry,
+      });
+
       fetch(`${SERVER_URL}/p-create`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json; charset=UTF-8",
-        },
-        body: JSON.stringify({
-          title: data.Title,
-          text: data.Text,
-          language: data.Language,
-          expires_at: expiry,
-        }),
+        headers: MainHeaders,
+        body: reqData,
+        redirect: "follow",
       })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("Success", data);
+        .then((res) => res.text())
+        .then((res) => {
+          if (process.browser) {
+            window.location.href = `${SERVER_URL}/p/${res}`;
+          }
         })
-        .catch((err) => {
-          console.error("Error:", err);
-        });
+        .catch((error) => console.log("error", error));
     };
 
     if (data.ExpiresAt === "never") {
