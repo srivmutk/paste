@@ -4,9 +4,6 @@ import React from "react";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import useSWR from "swr";
-import axios from "axios";
-import { time } from "console";
-import { exec } from "child_process";
 
 dayjs.extend(utc);
 
@@ -27,7 +24,7 @@ const SERVER_URL = process.env.SERVER_URL as string;
 const ErrorMsg = ({ Msg }: ErrorMsg) => {
   return (
     <>
-      <span className=" text-black bg-yellow-600 error-color rounded-xl p-5 mb-3 mt-3">
+      <span className="text-black bg-yellow-600 error-color rounded-xl p-5 mb-3 mt-3">
         {Msg}
       </span>
     </>
@@ -37,6 +34,7 @@ const ErrorMsg = ({ Msg }: ErrorMsg) => {
 const IndexPage = () => {
   const { data } = useSWR(`${SERVER_URL}/langs`);
   const [language, setLanguage] = React.useState("none");
+  const [formSubmitError, setFormSubmitError] = React.useState(false);
 
   const {
     register,
@@ -69,7 +67,10 @@ const IndexPage = () => {
             window.location.href = `${SERVER_URL}/p/${res}`;
           }
         })
-        .catch((error) => console.log("error", error));
+        .catch((error) => {
+          console.log("error", error);
+          setFormSubmitError(true);
+        });
     };
 
     if (data.ExpiresAt === "never") {
@@ -105,6 +106,7 @@ const IndexPage = () => {
           <div className="flex flex-col flex-wrap pb-10">
             {errors.Title && <ErrorMsg Msg="Title Required" />}
             {errors.Text && <ErrorMsg Msg="Body Required" />}
+            {formSubmitError && <ErrorMsg Msg="Error Submitting Form" />}
             <div className="flex flex-wrap space-x-2 lg:space-x-5 xl:space-x-5 md:space-x-5 sm:space-x-1">
               {/* Paste Title */}
               <div>
