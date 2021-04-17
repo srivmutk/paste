@@ -1,4 +1,4 @@
-## sysnomid paste server
+## Sysnomid Paste Server
 
 Source code for Sysnomid Paste, under Apache 2.0 License
 
@@ -6,14 +6,21 @@ Source code for Sysnomid Paste, under Apache 2.0 License
 
 #### Backend
 
-- Golang with Echo and Pgxpool
+- Golang w/Echo and Pgxpool
 
 ### Frontend
 
-- WIP
+- NextJS w/Typescript and TailwindCSS
 
 ### Setup
 
-Rename .ex.env to .env in file root
+Rename .ex.env to .env in project root
 
-Change CORS_ORIGIN in .env
+Change CORS_ORIGIN, DATABASE_URL, and SERVER_URL to appropraite values
+
+### TODO
+
+- Get Authentication setup
+- Get syntax highlighting when people are creating a paste
+- Add an API route to get the raw text of a paste
+- Add a CLI
