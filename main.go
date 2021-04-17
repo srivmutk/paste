@@ -14,6 +14,8 @@ import (
 func main() {
 	connection.Init()
 
+	go connection.Create()
+
 	go handlers.DeleteExpired()
 
 	e := echo.New()

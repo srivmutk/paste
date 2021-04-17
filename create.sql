@@ -16,6 +16,8 @@ VALUES
     ('md', 'Markdown'),
     ('mongodb', 'MongoDB'),
     ('elixir', 'Elixir'),
+    ('dart', 'Dart'),
+    ('elm', 'Elm'),
     ('java', 'Java'),
     ('kotlin', 'Kotlin'),
     ('js', 'JavaScript'),
@@ -28,9 +30,11 @@ VALUES
     ('rust', 'Rust'),
     ('sql', 'SQL'),
     ('sol', 'Solidity (Ethereum)'),
+    ('scheme', 'Scheme'),
     ('lua', 'Lua'),
     ('html', 'HTML'),
     ('css', 'CSS'),
+    ('fsharp', 'F#'),
     ('csharp', 'C#'),
     ('haskell', 'Haskell'),
     ('swift', 'Swift'),
@@ -42,8 +46,9 @@ VALUES
     ('yaml', 'YAML'),
     ('zig', 'Zig'),
     ('json', 'JSON')
-ON CONFLICT (language)
-DO NOTHING;
+ON CONFLICT (language) DO UPDATE 
+    SET language = excluded.language;
+
 
 --- Pastes Table
     --- id bigint for use with snowflake

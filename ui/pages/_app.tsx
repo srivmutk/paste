@@ -11,8 +11,16 @@ const App = ({ Component, pageProps }: AppProps) => {
       <SWRConfig
         value={{
           refreshInterval: 3000,
-          fetcher: (resource, init) =>
-            fetch(resource, init).then((res) => res.json()),
+          fetcher: async (resource, init) => {
+            const res = await fetch(resource, init);
+
+            if (!res.ok) {
+              const error = new Error("Error Occured while Fetching");
+              throw error;
+            }
+
+            return res.json();
+          },
         }}
       >
         <div className="flex flex-col h-screen justify-between">

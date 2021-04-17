@@ -18,10 +18,6 @@ body {
   @apply px-4 py-2 font-bold text-white bg-blue-500 rounded;
 }
 
-.error-color {
-  @apply bg-yellow-600;
-}
-
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */

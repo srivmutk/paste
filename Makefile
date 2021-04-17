@@ -4,7 +4,7 @@ UI_DIR=cd ui
 GO_INSTALL=go get ./...
 GO_BUILD=go build -o main
 
-project-install:
+p-install:
 	${GO_INSTALL} && ${UI_DIR} && npm i
 
 server-install: main.go

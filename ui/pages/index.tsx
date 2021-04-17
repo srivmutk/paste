@@ -32,16 +32,37 @@ const ErrorMsg = ({ Msg }: ErrorMsg) => {
 };
 
 const IndexPage = () => {
-  const { data } = useSWR(`${SERVER_URL}/langs`);
-  const [language, setLanguage] = React.useState("none");
-  const [formSubmitError, setFormSubmitError] = React.useState(false);
-
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm<FormInputs>();
+  const { data: result } = useSWR(`${SERVER_URL}/langs`);
+  const [language, setLanguage] = React.useState("none");
+  const [formSubmitError, setFormSubmitError] = React.useState(false);
+  let parsedData;
+
+  if (!result) {
+    return (
+      <>
+        <Layout>
+          <span>Loading ...</span>
+        </Layout>
+      </>
+    );
+  } else if (result) {
+    parsedData = JSON.parse(JSON.stringify(result));
+    console.log(parsedData.data);
+  } else {
+    return (
+      <>
+        <div>
+          <Layout>Server Side Error ... Try again Later</Layout>
+        </div>
+      </>
+    );
+  }
 
   const onSubmit = (data: FormInputs) => {
     const fetchFn = (expiry: null | string) => {
@@ -49,7 +70,7 @@ const IndexPage = () => {
       MainHeaders.append("Content-Type", "application/json");
 
       const reqData = JSON.stringify({
-        title: data.Title,
+        title: data.Title || "Untitled",
         text: data.Text,
         language: data.Language,
         expires_at: expiry,
@@ -64,7 +85,7 @@ const IndexPage = () => {
         .then((res) => res.text())
         .then((res) => {
           if (process.browser) {
-            window.location.href = `${SERVER_URL}/p/${res}`;
+            window.location.href = `/p/${res}`;
           }
         })
         .catch((error) => {
@@ -82,20 +103,6 @@ const IndexPage = () => {
     reset();
   };
 
-  let parsedData;
-  try {
-    parsedData = JSON.parse(JSON.stringify(data));
-    console.log(parsedData.data);
-  } catch {
-    return (
-      <>
-        <div>
-          <Layout>Server Side Error ... Try again Later</Layout>
-        </div>
-      </>
-    );
-  }
-
   return (
     <>
       <Layout>
@@ -104,7 +111,7 @@ const IndexPage = () => {
         </h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col flex-wrap pb-10">
-            {errors.Title && <ErrorMsg Msg="Title Required" />}
+            {/* {errors.Title && <ErrorMsg Msg="Title Required" />} */}
             {errors.Text && <ErrorMsg Msg="Body Required" />}
             {formSubmitError && <ErrorMsg Msg="Error Submitting Form" />}
             <div className="flex flex-wrap space-x-2 lg:space-x-5 xl:space-x-5 md:space-x-5 sm:space-x-1">
@@ -112,7 +119,7 @@ const IndexPage = () => {
               <div>
                 <div className="text-bold mt-5 mb-5 text-2xl">Paste Title</div>
                 <input
-                  {...register("Title", { required: true })}
+                  {...register("Title")}
                   placeholder="Untitled"
                   className="text-white p-3 text-md bg-gray-600 rounded-md"
                 ></input>
