@@ -19,7 +19,9 @@ import "prismjs/components/prism-ruby.min";
 import "prismjs/components/prism-solidity.min";
 import "prismjs/components/prism-lua.min";
 import "prismjs/components/prism-css.min";
+import "prismjs/components/prism-elm.min";
 import "prismjs/components/prism-csharp.min";
+import "prismjs/components/prism-fsharp.min";
 import "prismjs/components/prism-haskell.min";
 import "prismjs/components/prism-swift.min";
 import "prismjs/components/prism-scala.min";
@@ -33,6 +35,7 @@ import Layout from "../../components/layout";
 import { InferGetServerSidePropsType } from "next";
 import React from "react";
 import useSWR from "swr";
+import dayjs from "dayjs";
 
 const SERVER_URL = process.env.SERVER_URL as string;
 
@@ -69,13 +72,19 @@ export default function GetPaste({
   return (
     <>
       <Layout>
-        <div className="bg-gray-700 pl-5 pt-5 mb-10 pb-5 bg-center w-full rounded-md shadow-8xl">
-          <span className="flex">
-            <div className="text-4xl break-words">{parsedData.Title}</div>
-            <div className="text-1xl break-words float-right ml-auto mt-2 mr-5 italic">
-              {parsedData.CreatedAt}
+        <div className="bg-gray-700 pl-5 pt-5 mb-5 pb-5 bg-center w-full rounded-md shadow-8xl">
+          <div className="flex">
+            <div className="text-4xl font-black break-words">
+              {parsedData.Title}
             </div>
-          </span>
+            <div className="text-1xl break-words float-right ml-auto mt-2 mr-5 italic">
+              {dayjs(parsedData.CreatedAt).format("MMMM DD, YYYY HH:MM:ss")}
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-gray-700 mb-5 bg-center w-auto p-5 rounded-xl shadow-8xl">
+          {parsedData.LanguageDisplayName}
         </div>
         <pre className="line-numbers pl-5 pt-5 pb-5 bg-center w-full rounded-md shadow-8xl">
           <code className={`language-${parsedData.Language}`}>

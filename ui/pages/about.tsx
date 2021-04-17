@@ -8,6 +8,11 @@ export default function AboutPage() {
         <div>
           <div className="text-2xl pb-10">
             This is a simple pastebin written in Golang and Typescript
+            <br />
+            <br />
+            <a href="https://github.com/Sysnomid/paste" className="underline">
+              Github
+            </a>
           </div>
         </div>
       </Layout>

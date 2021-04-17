@@ -36,7 +36,6 @@ const IndexPage = () => {
     register,
     handleSubmit,
     reset,
-    setValue,
     formState: { errors },
   } = useForm<FormInputs>();
   const { data: result } = useSWR(`${SERVER_URL}/langs`);
@@ -117,14 +116,16 @@ const IndexPage = () => {
             {/* {errors.Title && <ErrorMsg Msg="Title Required" />} */}
             {errors.Text && <ErrorMsg Msg="Body Required" />}
             {formSubmitError && <ErrorMsg Msg="Error Submitting Form" />}
-            <div className="flex flex-wrap space-x-2 lg:space-x-5 xl:space-x-5 md:space-x-5 sm:space-x-1">
+            <div className="flex flex-wrap space-x-1 lg:space-x-5 xl:space-x-5 md:space-x-5 sm:space-x-1">
               {/* Paste Title */}
               <div>
                 <div className="text-bold mt-5 mb-5 text-2xl">Paste Title</div>
                 <input
                   {...register("Title")}
+                  id="title"
                   placeholder="Untitled"
-                  className="text-white p-3 text-md bg-gray-600 rounded-md"
+                  className="text-white p-3 text-md bg-gray-600 rounded-md md:input-width xl:input-width"
+                  style={{}}
                 ></input>
               </div>
 
@@ -143,7 +144,7 @@ const IndexPage = () => {
                     setLanguage(e.target.value);
                     console.log(language);
                   }}
-                  className="text-white p-3 bg-gray-600 rounded-md text-md"
+                  className="text-white p-3 bg-gray-600 rounded-md"
                 >
                   {parsedData.map((data: any) => (
                     <option key={data.Language} value={data.Language}>
@@ -204,7 +205,6 @@ const IndexPage = () => {
                 .textarea-c {
                   background-color: #2d2d2d;
                 }
-
                 .textarea-h {
                   height: 70vh;
                 }
