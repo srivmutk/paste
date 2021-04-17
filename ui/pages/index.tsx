@@ -84,10 +84,13 @@ const IndexPage = () => {
         body: reqData,
         redirect: "follow",
       })
-        .then((res) => res.text())
         .then((res) => {
-          if (process.browser) {
-            window.location.href = `/p/${res}`;
+          if (!res.ok) {
+            setFormSubmitError(true);
+          } else {
+            if (process.browser) {
+              window.location.href = `/p/${res.text()}`;
+            }
           }
         })
         .catch((error) => {
@@ -113,18 +116,19 @@ const IndexPage = () => {
         </h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col flex-wrap pb-10">
-            {/* {errors.Title && <ErrorMsg Msg="Title Required" />} */}
             {errors.Text && <ErrorMsg Msg="Body Required" />}
             {formSubmitError && <ErrorMsg Msg="Error Submitting Form" />}
             <div className="flex flex-wrap space-x-1 lg:space-x-5 xl:space-x-5 md:space-x-5 sm:space-x-1">
               {/* Paste Title */}
               <div>
-                <div className="text-bold mt-5 mb-5 text-2xl">Paste Title</div>
+                <div className="text-bold mt-5 mb-5 text-2xl">
+                  Paste Title <span className="text-sm">(max 255 chars)</span>
+                </div>
                 <input
                   {...register("Title")}
                   id="title"
                   placeholder="Untitled"
-                  className="text-white p-3 text-md bg-gray-600 rounded-md md:input-width xl:input-width"
+                  className="text-white p-3 text-md bg-gray-600 rounded-md xl:input-width"
                   style={{}}
                 ></input>
               </div>

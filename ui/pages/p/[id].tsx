@@ -72,12 +72,12 @@ export default function GetPaste({
   return (
     <>
       <Layout>
-        <div className="bg-gray-700 pl-5 pt-5 mb-5 pb-5 bg-center w-full rounded-md shadow-8xl">
-          <div className="flex">
+        <div className="bg-gray-700 ml-80 mr-80 p-10 bg-center ml-full mr-full w-11/12 rounded-xl shadow-8xl mb-5">
+          <div className="flex sm:flex-col">
             <div className="text-4xl font-black break-words">
               {parsedData.Title}
             </div>
-            <div className="text-1xl break-words float-right ml-auto mt-2 mr-5 italic">
+            <div className="text-1xl break-words italic sm:pt-2">
               {dayjs(parsedData.CreatedAt).format("MMMM DD, YYYY HH:MM:ss")}
             </div>
           </div>
