@@ -25,10 +25,10 @@ import "prismjs/components/prism-swift.min";
 import "prismjs/components/prism-scala.min";
 import "prismjs/components/prism-graphql.min";
 import "prismjs/components/prism-powershell.min";
-
 import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
 import "prismjs/plugins/line-numbers/prism-line-numbers.css";
+
 import Layout from "../../components/layout";
 import { InferGetServerSidePropsType } from "next";
 import React from "react";
@@ -50,7 +50,7 @@ export default function GetPaste({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   React.useEffect(() => {
     Prism.highlightAll();
-  }, []);
+  });
 
   const { data: result, error } = useSWR(`${SERVER_URL}/p/${id}`);
 
@@ -69,9 +69,19 @@ export default function GetPaste({
   return (
     <>
       <Layout>
-        <div className="bg-gray-700 pl-5 pt-5 pb-5 bg-center w-full rounded-md shadow-8xl">
-          <div className="text-4xl break-words">{parsedData.Title}</div>
+        <div className="bg-gray-700 pl-5 pt-5 mb-10 pb-5 bg-center w-full rounded-md shadow-8xl">
+          <span className="flex">
+            <div className="text-4xl break-words">{parsedData.Title}</div>
+            <div className="text-1xl break-words float-right ml-auto mt-2 mr-5 italic">
+              {parsedData.CreatedAt}
+            </div>
+          </span>
         </div>
+        <pre className="line-numbers pl-5 pt-5 pb-5 bg-center w-full rounded-md shadow-8xl">
+          <code className={`language-${parsedData.Language}`}>
+            {parsedData.Text}
+          </code>
+        </pre>
       </Layout>
     </>
   );

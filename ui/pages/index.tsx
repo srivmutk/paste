@@ -36,6 +36,7 @@ const IndexPage = () => {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<FormInputs>();
   const { data: result } = useSWR(`${SERVER_URL}/langs`);
@@ -65,6 +66,8 @@ const IndexPage = () => {
   }
 
   const onSubmit = (data: FormInputs) => {
+    console.log(data);
+    data.Language = language;
     const fetchFn = (expiry: null | string) => {
       let MainHeaders = new Headers();
       MainHeaders.append("Content-Type", "application/json");
@@ -131,7 +134,6 @@ const IndexPage = () => {
                   Paste Language
                 </div>
                 <select
-                  {...register("Language")}
                   name="languages"
                   id="languages"
                   value={language}
