@@ -17,7 +17,7 @@ Source code for paste.sysnomid.com, under Apache 2.0 License
 1. Get PostgreSQL setup
 2. Rename .ex.env to .env, and change `DATABASE_URL` to your Postgres connection DSN, and `SERVER_URL`, to what URL you plan to access the API from.
 3. Get Golang and NodeJS setup, and then run `make p-install` or `go get ./... && cd ui && npm i`.
-4. Then run, `make server-start` or `air` and `make ui-start` or `cd ui` and `npm run dev` to get a development environment.
+4. Then run, `make server-start` or `air` and `make ui-start` or `cd ui && npm run dev` to get a development environment.
 
 ### Docker
 
