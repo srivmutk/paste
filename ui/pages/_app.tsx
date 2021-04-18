@@ -28,7 +28,6 @@ const App = ({ Component, pageProps }: AppProps) => {
       >
         <div className="flex flex-col h-screen justify-between">
           <Head>
-            <title>paste.sysnomid.com</title>
             <link rel="preconnect" href="https://fonts.gstatic.com" />
             <link
               href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap"

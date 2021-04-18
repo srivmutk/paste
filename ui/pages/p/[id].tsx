@@ -42,6 +42,7 @@ import useSWR from "swr";
 import dayjs from "dayjs";
 import Custom404 from "../404";
 import Link from "next/link";
+import Head from "next/head";
 
 const SERVER_URL = process.env.SERVER_URL as string;
 
@@ -76,6 +77,26 @@ export default function GetPaste({
   return (
     <>
       <Layout>
+        <Head>
+          <title>
+            {parsedData.Title} -{" "}
+            {dayjs(parsedData.CreatedAt).format("MMMM DD, YYYY HH:MM:ss")}
+          </title>
+          <meta name="title" content={parsedData.Title} />
+          <meta
+            name="description"
+            content={dayjs(parsedData.CreatedAt).format(
+              "MMMM DD, YYYY HH:MM:ss"
+            )}
+          />
+          <meta name="og:title" content={parsedData.Title} />
+          <meta
+            name="og:description"
+            content={dayjs(parsedData.CreatedAt).format(
+              "MMMM DD, YYYY HH:MM:ss"
+            )}
+          />
+        </Head>
         <div className="bg-gray-700 ml-80 mr-80 p-10 bg-center ml-full mr-full md:w-full xl:w-11/12 rounded-xl shadow-8xl">
           <div className="flex flex-col">
             <div className="text-4xl font-black break-words pb-3 sm:pb-10 md:pb-5">
