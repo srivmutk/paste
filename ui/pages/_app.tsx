@@ -9,7 +9,7 @@ const SERVER_URL = process.env.SERVER_URL as string;
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <>
+    <html lang="en">
       <SWRConfig
         value={{
           refreshInterval: 3000,
@@ -49,7 +49,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           <Footer />
         </div>
       </SWRConfig>
-    </>
+    </html>
   );
 };
 
