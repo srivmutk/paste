@@ -28,7 +28,6 @@ type PasteResBody struct {
 
 // LanguageRow ... Model for Language HTTP response
 type LanguageRow struct {
-	ID       int
 	Language string
 	Name     string
 }

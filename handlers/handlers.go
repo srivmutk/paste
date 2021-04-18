@@ -72,7 +72,7 @@ func GetLanguages(c echo.Context) (err error) {
 	var rowSlice []models.LanguageRow
 	for rows.Next() {
 		var r models.LanguageRow
-		err := rows.Scan(&r.ID, &r.Language, &r.Name)
+		err := rows.Scan(&r.Language, &r.Name)
 		if err != nil {
 			log.Fatal(err)
 		}
