@@ -23,6 +23,6 @@ ui-start:
 	${UI_DIR} && npm run dev
 
 docker:
-	docker build -t ${DOCKER_CONTAINER_NAME} . && docker run -dp 4200:4200 ${DOCKER_CONTAINER_NAME}
+	docker build -t ${DOCKER_CONTAINER_NAME} . && docker run -dp 4300:4300 ${DOCKER_CONTAINER_NAME}
 
 
