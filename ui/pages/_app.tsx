@@ -5,6 +5,8 @@ import Footer from "../components/footer";
 import Head from "next/head";
 import { SWRConfig } from "swr";
 
+const SERVER_URL = process.env.SERVER_URL as string;
+
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
@@ -30,6 +32,12 @@ const App = ({ Component, pageProps }: AppProps) => {
             <link
               href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap"
               rel="stylesheet"
+            ></link>
+            <link
+              rel="preload"
+              href={SERVER_URL}
+              as="fetch"
+              crossOrigin="anonymous"
             ></link>
             <meta name="title" content="paste.sysnomid.com" />
             <meta name="description" content="Paste by Sysnomid." />

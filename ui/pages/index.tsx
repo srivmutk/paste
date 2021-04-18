@@ -38,12 +38,20 @@ const IndexPage = () => {
     reset,
     formState: { errors },
   } = useForm<FormInputs>();
-  const { data: result } = useSWR(`${SERVER_URL}/langs`);
+  const { data: result, error } = useSWR(`${SERVER_URL}/langs`);
   const [language, setLanguage] = React.useState("none");
   const [formSubmitError, setFormSubmitError] = React.useState(false);
   let parsedData;
 
-  if (!result) {
+  if (error) {
+    return (
+      <>
+        <div>
+          <Layout>Server Side Error ... Try again Later</Layout>
+        </div>
+      </>
+    );
+  } else if (!result) {
     return (
       <>
         <Layout>
