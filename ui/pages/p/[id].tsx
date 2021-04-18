@@ -86,7 +86,7 @@ export default function GetPaste({
         <div className="bg-gray-700 mb-5 bg-center w-auto p-5 rounded-xl shadow-8xl">
           {parsedData.LanguageDisplayName}
         </div>
-        <pre className="line-numbers pl-5 pt-5 pb-5 bg-center w-full rounded-md shadow-8xl">
+        <pre className="line-numbers p-10 bg-center w-full rounded-md shadow-8xl">
           <code className={`language-${parsedData.Language}`}>
             {parsedData.Text}
           </code>

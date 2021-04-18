@@ -10,6 +10,7 @@ html,
 body {
   @apply bg-gray-800 text-gray-300;
   font-family: "Inter", sans-serif;
+  overflow-x: hidden;
 }
 
 /* Write your own custom component styles here */
