@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import useSWR from "swr";
 import Custom500 from "./500";
+import Head from "next/head";
 
 dayjs.extend(utc);
 
@@ -124,6 +125,14 @@ const IndexPage = () => {
   return (
     <>
       <Layout>
+        <Head>
+          <meta name="title" content="paste.sysnomid.com" />
+          <meta name="description" content="Paste by Sysnomid." />
+          <meta name="image" content="/Meta.webp" />
+          <meta name="og:title" content="paste.sysnomid.com" />
+          <meta name="og:description" content="Paste by Sysnomid." />
+          <meta name="og:image" content="/Meta.webp" />
+        </Head>
         <h1 className="text-3xl text-bold text-blue-200 pb-5">
           Create a New Paste
         </h1>

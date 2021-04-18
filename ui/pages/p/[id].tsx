@@ -96,6 +96,7 @@ export default function GetPaste({
               "MMMM DD, YYYY HH:MM:ss"
             )}
           />
+          <meta name="og:image" content="/Meta.webp" />
         </Head>
         <div className="bg-gray-700 ml-80 mr-80 p-10 bg-center ml-full mr-full md:w-full xl:w-11/12 rounded-xl shadow-8xl">
           <div className="flex flex-col">
