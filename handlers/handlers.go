@@ -45,7 +45,7 @@ func CreatePaste(c echo.Context) (err error) {
 	return c.JSON(http.StatusOK, id)
 }
 
-// GetPaste ... Get a paste where id equals req query params and is not expired
+// GetPaste ... Get a paste where ID equals Req Query Params and Is Not Expired
 func GetPaste(c echo.Context) (err error) {
 	var pr = new(models.PasteResBody)
 
@@ -54,11 +54,22 @@ func GetPaste(c echo.Context) (err error) {
 		Scan(&pr.ID, &pr.Text, &pr.Title, &pr.Language, &pr.LanguageDisplayName, &pr.CreatedAt)
 
 	if err != nil {
-		log.Println(err)
 		return c.JSON(http.StatusNotFound, "Paste Not Found")
 	}
 
 	return c.JSONPretty(http.StatusOK, pr, " ")
+}
+
+// GetRawPaste ... Get a paste in Plaintext
+func GetRawPaste(c echo.Context) (err error) {
+	var rpr = new(models.PasteResBody)
+
+	err = connection.Conn.QueryRow(context.Background(), "SELECT text FROM vw_pastes WHERE id = $1 and is_valid =  true;", c.Param("id")).Scan(&rpr.Text)
+	if err != nil {
+		return c.JSON(http.StatusNotFound, "Paste Not Found")
+	}
+
+	return c.String(http.StatusOK, rpr.Text)
 }
 
 // GetLanguages ... Get all of the supported languages
@@ -84,7 +95,7 @@ func GetLanguages(c echo.Context) (err error) {
 	return c.JSONPretty(http.StatusOK, rowSlice, "  ")
 }
 
-// DeletedExpired ... Infinite loop goroutine that auto deletes expired pastes
+// DeleteExpired ... Infinite loop Goroutine that auto deletes expired pastes
 func DeleteExpired() {
 	for {
 		deletedRows, err := connection.Conn.Exec(context.Background(), "DELETE FROM pastes WHERE id IN (SELECT id FROM vw_pastes WHERE is_valid = false);")

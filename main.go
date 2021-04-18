@@ -45,11 +45,12 @@ func main() {
 
 	e.Use(middleware.RateLimiterWithConfig(config))
 
-	e.GET("/", func(c echo.Context) error {
+	e.GET("/", func(c echo.Context) (err error) {
 		return c.JSON(http.StatusOK, "paste.sysnomid.com API")
 	})
 	e.POST("/p-create", handlers.CreatePaste)
 	e.GET("/p/:id", handlers.GetPaste)
+	e.GET("/p/:id/raw", handlers.GetRawPaste)
 	e.GET("/langs", handlers.GetLanguages)
 
 	e.Logger.Fatal(e.Start(":4300"))

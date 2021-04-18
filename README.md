@@ -27,5 +27,4 @@ Run `make docker` to get a container with the paste API.
 
 - Get Authentication setup
 - Get syntax highlighting when people are creating a paste
-- Add an API route to get the raw text of a paste
 - Add a CLI

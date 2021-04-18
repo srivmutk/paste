@@ -4,6 +4,7 @@ import React from "react";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import useSWR from "swr";
+import Custom500 from "./500";
 
 dayjs.extend(utc);
 
@@ -47,7 +48,7 @@ const IndexPage = () => {
     return (
       <>
         <div>
-          <Layout>Server Side Error ... Try again Later</Layout>
+          <Custom500 />
         </div>
       </>
     );
@@ -66,7 +67,7 @@ const IndexPage = () => {
     return (
       <>
         <div>
-          <Layout>Server Side Error ... Try again Later</Layout>
+          <Custom500 />
         </div>
       </>
     );

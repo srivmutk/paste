@@ -39,6 +39,8 @@ import { InferGetServerSidePropsType } from "next";
 import React from "react";
 import useSWR from "swr";
 import dayjs from "dayjs";
+import Custom404 from "../404";
+import Link from "next/link";
 
 const SERVER_URL = process.env.SERVER_URL as string;
 
@@ -61,9 +63,7 @@ export default function GetPaste({
   const { data: result, error } = useSWR(`${SERVER_URL}/p/${id}`);
 
   if (error) {
-    if (process.browser) {
-      window.location.href = "/404";
-    }
+    <Custom404 />;
   }
 
   if (!result) {
@@ -77,17 +77,24 @@ export default function GetPaste({
       <Layout>
         <div className="bg-gray-700 ml-80 mr-80 p-10 bg-center ml-full mr-full xl:w-11/12 rounded-xl shadow-8xl mb-5">
           <div className="flex flex-col">
-            <div className="text-4xl font-black break-words pb-1 sm:pb-5">
+            <div className="text-4xl font-black break-words sm:pb-2">
               {parsedData.Title}
             </div>
-            <div className="text-1xl break-words italic sm:pt-2">
+            <div className="text-1xl break-words italic">
               {dayjs(parsedData.CreatedAt).format("MMMM DD, YYYY HH:MM:ss")}
             </div>
           </div>
         </div>
 
-        <div className="bg-gray-700 mb-5 bg-center w-auto p-5 rounded-xl shadow-8xl">
-          {parsedData.LanguageDisplayName}
+        <div className="flex flex-row">
+          <div className="bg-gray-700 mb-5 bg-center w-auto p-5 rounded-xl shadow-8xl text-gray-400">
+            {parsedData.LanguageDisplayName}
+          </div>
+          <div>
+            <Link href={`${SERVER_URL}/p/${id}/raw`}>
+              <button className="float-right mt-5 ml-5">View as Raw</button>
+            </Link>
+          </div>
         </div>
         <pre className="line-numbers p-10 bg-center w-full rounded-md shadow-8xl">
           <code className={`language-${parsedData.Language}`}>
