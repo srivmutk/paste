@@ -1,7 +1,6 @@
 --- Language Table, language column set to unique, as to use it as a foreign key in the pastes table
 CREATE TABLE IF NOT EXISTS languages (
-    id SERIAL PRIMARY KEY NOT NULL,
-    language varchar(255) NOT NULL UNIQUE,
+    language varchar(255) NOT NULL UNIQUE PRIMARY KEY,
     name varchar(255) NOT NULL 
 ); 
 
