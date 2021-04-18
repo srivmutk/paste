@@ -4,41 +4,6 @@ import React from "react";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import useSWR from "swr";
-import Prism from "prismjs";
-import "prismjs/components/prism-jsx.min";
-import "prismjs/components/prism-go.min";
-import "prismjs/components/prism-python.min";
-import "prismjs/components/prism-markdown.min";
-import "prismjs/components/prism-makefile.min";
-import "prismjs/components/prism-javascript.min";
-import "prismjs/components/prism-java.min";
-import "prismjs/components/prism-vim.min";
-import "prismjs/components/prism-ignore.min";
-import "prismjs/components/prism-elixir.min";
-import "prismjs/components/prism-mongodb.min";
-import "prismjs/components/prism-typescript.min";
-import "prismjs/components/prism-tsx.min";
-import "prismjs/components/prism-sql.min";
-import "prismjs/components/prism-r.min";
-import "prismjs/components/prism-rust.min";
-import "prismjs/components/prism-json.min";
-import "prismjs/components/prism-zig.min";
-import "prismjs/components/prism-yaml.min";
-import "prismjs/components/prism-ruby.min";
-import "prismjs/components/prism-solidity.min";
-import "prismjs/components/prism-lua.min";
-import "prismjs/components/prism-css.min";
-import "prismjs/components/prism-elm.min";
-import "prismjs/components/prism-csharp.min";
-import "prismjs/components/prism-fsharp.min";
-import "prismjs/components/prism-haskell.min";
-import "prismjs/components/prism-swift.min";
-import "prismjs/components/prism-scala.min";
-import "prismjs/components/prism-graphql.min";
-import "prismjs/components/prism-powershell.min";
-import "prismjs/themes/prism-tomorrow.css";
-import "prismjs/plugins/line-numbers/prism-line-numbers";
-import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 
 dayjs.extend(utc);
 
@@ -67,11 +32,6 @@ const ErrorMsg = ({ Msg }: ErrorMsg) => {
 };
 
 const IndexPage = () => {
-  if (process.browser) {
-    React.useState(() => {
-      Prism.highlightAll();
-    });
-  }
   const {
     register,
     handleSubmit,
@@ -81,7 +41,6 @@ const IndexPage = () => {
   const { data: result } = useSWR(`${SERVER_URL}/langs`);
   const [language, setLanguage] = React.useState("none");
   const [formSubmitError, setFormSubmitError] = React.useState(false);
-  const [textVal, setTextVal] = React.useState("");
   let parsedData;
 
   if (!result) {
@@ -245,10 +204,6 @@ const IndexPage = () => {
               <pre>
                 <textarea
                   {...register("Text", { required: true })}
-                  value={textVal}
-                  onChange={(e) => {
-                    setTextVal(e.target.value);
-                  }}
                   spellCheck="false"
                   placeholder="fmt.Println('Placeholder Stuff)'"
                   className="text-white textarea-c textarea-h textarea-w text-md p-10 block rounded-xl"
@@ -266,6 +221,10 @@ const IndexPage = () => {
                 }
               `}</style>
             </div>
+            <input
+              type="submit"
+              className="text-white w-full p-5 mt-10 bg-blue-700 rounded-md"
+            ></input>
           </div>
         </form>
       </Layout>
