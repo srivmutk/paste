@@ -72,9 +72,9 @@ export default function GetPaste({
   return (
     <>
       <Layout>
-        <div className="bg-gray-700 ml-80 mr-80 p-10 bg-center ml-full mr-full w-11/12 rounded-xl shadow-8xl mb-5">
-          <div className="flex sm:flex-col">
-            <div className="text-4xl font-black break-words">
+        <div className="bg-gray-700 ml-80 mr-80 p-10 bg-center ml-full mr-full xl:w-11/12 rounded-xl shadow-8xl mb-5">
+          <div className="flex flex-col">
+            <div className="text-4xl font-black break-words pb-1 sm:pb-5">
               {parsedData.Title}
             </div>
             <div className="text-1xl break-words italic sm:pt-2">
