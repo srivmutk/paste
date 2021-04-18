@@ -128,10 +128,10 @@ const IndexPage = () => {
         <Head>
           <meta name="title" content="paste.sysnomid.com" />
           <meta name="description" content="Paste by Sysnomid." />
-          <meta name="image" content="/Meta.webp" />
           <meta name="og:title" content="paste.sysnomid.com" />
           <meta name="og:description" content="Paste by Sysnomid." />
-          <meta name="og:image" content="/Meta.webp" />
+          <meta name="image" content="meta.png" />
+          <meta name="og:image" content="meta.png" />
         </Head>
         <h1 className="text-3xl text-bold text-blue-200 pb-5">
           Create a New Paste
