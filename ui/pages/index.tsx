@@ -67,7 +67,7 @@ const IndexPage = () => {
   const onSubmit = (data: FormInputs) => {
     console.log(data);
     data.Language = language;
-    const fetchFn = (expiry: null | string) => {
+    const fetchFn = async (expiry: null | string) => {
       let MainHeaders = new Headers();
       MainHeaders.append("Content-Type", "application/json");
 
@@ -85,12 +85,16 @@ const IndexPage = () => {
         redirect: "follow",
       })
         .then((res) => {
-          if (!res.ok) {
-            setFormSubmitError(true);
+          if (res.ok) {
+            return res.text();
           } else {
-            if (process.browser) {
-              window.location.href = `/p/${res.text()}`;
-            }
+            setFormSubmitError(true);
+            throw new Error("Form Submit Error");
+          }
+        })
+        .then((res) => {
+          if (process.browser) {
+            window.location.href = `/p/${res}`;
           }
         })
         .catch((error) => {
