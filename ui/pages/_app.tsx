@@ -31,6 +31,10 @@ const App = ({ Component, pageProps }: AppProps) => {
               href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap"
               rel="stylesheet"
             ></link>
+            <meta name="title" content="paste.sysnomid.com" />
+            <meta name="description" content="Paste by Sysnomid." />
+            <meta name="og:title" content="paste.sysnomid.com" />
+            <meta name="og:description" content="Paste by Sysnomid." />
           </Head>
           <Navbar />
           <Component {...pageProps} />
