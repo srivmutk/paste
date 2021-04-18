@@ -30,6 +30,7 @@ import "prismjs/components/prism-swift.min";
 import "prismjs/components/prism-scala.min";
 import "prismjs/components/prism-graphql.min";
 import "prismjs/components/prism-powershell.min";
+import "prismjs/components/prism-toml.min";
 import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
 import "prismjs/plugins/line-numbers/prism-line-numbers.css";

@@ -48,6 +48,7 @@ VALUES
     ('graphql', 'GraphQL'),
     ('php', 'PHP'),
     ('powershell', 'PowerShell'),
+    ('toml', 'TOML'),
     ('yaml', 'YAML'),
     ('zig', 'Zig'),
     ('json', 'JSON')
