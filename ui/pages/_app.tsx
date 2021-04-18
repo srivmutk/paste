@@ -18,6 +18,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
             if (!res.ok) {
               const error = new Error("Error Occured while Fetching");
+              console.log(res.status);
               throw error;
             }
 

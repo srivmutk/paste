@@ -4,6 +4,7 @@ import React from "react";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import useSWR from "swr";
+import ErrorPage from "next/error";
 
 dayjs.extend(utc);
 
@@ -47,7 +48,7 @@ const IndexPage = () => {
     return (
       <>
         <div>
-          <Layout>Server Side Error ... Try again Later</Layout>
+          <ErrorPage statusCode={"500" as never} />
         </div>
       </>
     );
@@ -66,7 +67,7 @@ const IndexPage = () => {
     return (
       <>
         <div>
-          <Layout>Server Side Error ... Try again Later</Layout>
+          <ErrorPage statusCode={"500" as never} />
         </div>
       </>
     );
@@ -138,10 +139,10 @@ const IndexPage = () => {
                 </div>
                 <input
                   {...register("Title")}
+                  name="title"
                   id="title"
                   placeholder="Untitled"
                   className="text-white p-3 text-md bg-gray-600 rounded-md xl:input-width"
-                  style={{}}
                 ></input>
               </div>
 
@@ -212,6 +213,8 @@ const IndexPage = () => {
               <pre>
                 <textarea
                   {...register("Text", { required: true })}
+                  name="text"
+                  id="text"
                   spellCheck="false"
                   placeholder="fmt.Println('Placeholder Stuff)'"
                   className="text-white textarea-c textarea-h textarea-w text-md p-10 block rounded-xl"
