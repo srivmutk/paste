@@ -76,9 +76,9 @@ export default function GetPaste({
   return (
     <>
       <Layout>
-        <div className="bg-gray-700 ml-80 mr-80 p-10 bg-center ml-full mr-full xl:w-11/12 rounded-xl shadow-8xl mb-5">
+        <div className="bg-gray-700 ml-80 mr-80 p-10 bg-center ml-full mr-full md:w-full xl:w-11/12 rounded-xl shadow-8xl">
           <div className="flex flex-col">
-            <div className="text-4xl font-black break-words sm:pb-2">
+            <div className="text-4xl font-black break-words pb-3 sm:pb-10 md:pb-5">
               {parsedData.Title}
             </div>
             <div className="text-1xl break-words italic">
@@ -87,17 +87,19 @@ export default function GetPaste({
           </div>
         </div>
 
-        <div className="flex flex-row">
-          <div className="bg-gray-700 mb-5 bg-center w-auto p-5 rounded-xl shadow-8xl text-gray-400">
+        <div className="flex flex-row gap-5">
+          <div className="float-right mt-10 bg-gray-600 mb-5 bg-center w-auto p-5 rounded-xl shadow-8xl text-gray-200 break-words">
             {parsedData.LanguageDisplayName}
           </div>
           <div>
             <Link href={`${SERVER_URL}/p/${id}/raw`}>
-              <button className="float-right mt-5 ml-5">View as Raw</button>
+              <button className="float-right mt-10 ml-auto bg-blue-700 mb-5 bg-center w-auto p-5 rounded-xl shadow-8xl text-gray-800">
+                View Raw
+              </button>
             </Link>
           </div>
         </div>
-        <pre className="line-numbers p-10 bg-center w-full rounded-md shadow-8xl">
+        <pre className="line-numbers p-10 bg-center w-full rounded-xl shadow-8xl">
           <code className={`language-${parsedData.Language}`}>
             {parsedData.Text}
           </code>
