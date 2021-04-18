@@ -6,14 +6,6 @@ export default function AboutPage() {
   return (
     <>
       <Layout>
-        <Head>
-          <meta name="title" content="About" />
-          <meta name="description" content="Paste by Sysnomid." />
-          <meta name="og:title" content="About" />
-          <meta name="og:description" content="Paste by Sysnomid." />
-          <meta name="image" content="/meta.png" />
-          <meta name="og:image" content="/meta.png" />
-        </Head>
         <div className="text-5xl text-blue-300 p-2 pb-5">About</div>
         <div>
           <div className="text-2xl pb-10">
