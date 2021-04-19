@@ -222,11 +222,9 @@ const IndexPage = () => {
                 .textarea-c {
                   background-color: #2d2d2d;
                 }
-
                 .textarea-h {
                   height: 70vh;
                 }
-
                 .textarea-w {
                   width: 77.5vw;
                 }
