@@ -23,6 +23,9 @@ body {
     .input-width {
       width: 50vw;
     }
+    .textarea-h {
+      height: 70vh;
+    }
   }
 }
 

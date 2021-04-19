@@ -131,7 +131,7 @@ const IndexPage = () => {
           <div className="flex flex-col flex-wrap pb-10">
             {errors.Text && <ErrorMsg Msg="Body Required" />}
             {formSubmitError && <ErrorMsg Msg="Error Submitting Form" />}
-            <div className="flex flex-wrap space-x-1 lg:space-x-5 xl:space-x-5 md:space-x-5 sm:space-x-1">
+            <div className="flex flex-wrap space-x-1 lg:space-x-4 xl:space-x-4 xl:flex-nowrap md:space-x-2">
               {/* Paste Title */}
               <div>
                 <div className="text-bold mt-5 mb-5 text-2xl">
@@ -178,7 +178,7 @@ const IndexPage = () => {
                   {...register("ExpiresAt")}
                   name="expiresat"
                   id="expiresat"
-                  className="textarea-w text-white w-60 bg-green-800 p-3 mb-5 rounded-md"
+                  className="text-white w-60 bg-green-800 p-3 mb-5 rounded-md"
                 >
                   <option value="never">Never</option>
                   <option
@@ -215,20 +215,15 @@ const IndexPage = () => {
                   {...register("Text", { required: true })}
                   spellCheck="false"
                   placeholder="fmt.Println('Placeholder Stuff)'"
-                  className="text-white textarea-c textarea-h textarea-w text-md p-10 block rounded-xl"
+                  className="text-white textarea-c w-full textarea-h text-md p-10 rounded-xl"
                 ></textarea>
               </pre>
               <style jsx>{`
                 .textarea-c {
                   background-color: #2d2d2d;
                 }
-
                 .textarea-h {
                   height: 70vh;
-                }
-
-                .textarea-w {
-                  width: 77.5vw;
                 }
               `}</style>
             </div>
