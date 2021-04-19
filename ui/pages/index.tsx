@@ -42,7 +42,7 @@ const IndexPage = () => {
   const { data: result, error } = useSWR(`${SERVER_URL}/langs`);
   const [language, setLanguage] = React.useState("none");
   const [formSubmitError, setFormSubmitError] = React.useState(false);
-  let parsedData;
+  let parsedLanguageData;
 
   if (error) {
     return (
@@ -61,8 +61,8 @@ const IndexPage = () => {
       </>
     );
   } else if (result) {
-    parsedData = JSON.parse(JSON.stringify(result));
-    console.log(parsedData.data);
+    parsedLanguageData = JSON.parse(JSON.stringify(result));
+    console.log(parsedLanguageData.data);
   } else {
     return (
       <>
@@ -102,7 +102,7 @@ const IndexPage = () => {
           }
         })
         .then((res) => {
-          if (process.browser) {
+          if (typeof window !== "undefined") {
             window.location.href = `/p/${res}`;
           }
         })
@@ -163,7 +163,7 @@ const IndexPage = () => {
                   }}
                   className="text-white p-3 w-60 bg-gray-600 rounded-md"
                 >
-                  {parsedData.map((data: any) => (
+                  {parsedLanguageData.map((data: any) => (
                     <option key={data.Language} value={data.Language}>
                       {data.Name}
                     </option>
