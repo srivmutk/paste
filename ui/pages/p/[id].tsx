@@ -94,13 +94,13 @@ export default function GetPaste({
           </div>
         </div>
 
-        <div className="flex flex-row gap-5">
-          <div className="float-right mt-10 bg-gray-600 mb-5 bg-center w-auto p-5 rounded-xl shadow-8xl text-gray-200 break-words">
+        <div className="flex flex-row">
+          <div className="float-right mt-10 bg-gray-600 mb-5 bg-center w-auto p-5 rounded-xl shadow-8xl text-gray-200 mr-5">
             {parsedData.LanguageDisplayName}
           </div>
           <div>
             <Link href={`${SERVER_URL}/p/${id}/raw`}>
-              <button className="float-right mt-10 ml-auto bg-blue-700 mb-5 bg-center w-auto p-5 rounded-xl shadow-8xl text-gray-800">
+              <button className="float-right mt-10 ml-auto bg-blue-700 mb-5 bg-center w-auto p-5 rounded-xl shadow-8xl text-gray-200">
                 View Raw
               </button>
             </Link>
