@@ -83,9 +83,9 @@ export default function GetPaste({
             {dayjs(parsedData.CreatedAt).format("MMMM DD, YYYY HH:MM:ss")}
           </title>
         </Head>
-        <div className="bg-gray-700 ml-80 mr-80 p-10 bg-center ml-full mr-full md:w-full xl:w-11/12 rounded-xl shadow-8xl">
+        <div className="bg-gray-700 ml-80 mr-80 p-10 bg-center ml-full mr-full w-screen md:w-full sm:w-screen xl:w-full md:rounded-md xl:rounded-xl rounded-sm shadow-8xl">
           <div className="flex flex-col">
-            <div className="text-4xl font-black break-words pb-3 sm:pb-10 md:pb-5">
+            <div className="text-4xl font-black break-words pb-5 sm:pb-10 md:pb-5">
               {parsedData.Title}
             </div>
             <div className="text-1xl break-words italic">
@@ -95,12 +95,12 @@ export default function GetPaste({
         </div>
 
         <div className="flex flex-row">
-          <div className="float-right mt-10 bg-gray-600 mb-5 bg-center w-auto p-5 rounded-xl shadow-8xl text-gray-200 mr-5">
+          <div className="mt-10 bg-gray-600 mb-5 bg-center w-auto p-5 rounded-xl shadow-8xl text-gray-200 mr-5">
             {parsedData.LanguageDisplayName}
           </div>
           <div>
             <Link href={`${SERVER_URL}/p/${id}/raw`}>
-              <button className="float-right mt-10 ml-auto bg-blue-700 mb-5 bg-center w-auto p-5 rounded-xl shadow-8xl text-gray-200">
+              <button className="mt-10 ml-auto bg-blue-700 mb-5 bg-center w-auto p-5 rounded-xl shadow-8xl text-gray-200">
                 View Raw
               </button>
             </Link>

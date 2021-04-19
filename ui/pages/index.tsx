@@ -141,7 +141,7 @@ const IndexPage = () => {
                   {...register("Title")}
                   id="title"
                   placeholder="Untitled"
-                  className="text-white p-3 text-md bg-gray-600 rounded-md xl:input-width"
+                  className="text-white p-3 text-md bg-gray-600 w-60 rounded-md xl:input-width"
                   style={{}}
                 ></input>
               </div>
@@ -161,7 +161,7 @@ const IndexPage = () => {
                     setLanguage(e.target.value);
                     console.log(language);
                   }}
-                  className="text-white p-3 bg-gray-600 rounded-md"
+                  className="text-white p-3 w-60 bg-gray-600 rounded-md"
                 >
                   {parsedData.map((data: any) => (
                     <option key={data.Language} value={data.Language}>
@@ -178,7 +178,7 @@ const IndexPage = () => {
                   {...register("ExpiresAt")}
                   name="expiresat"
                   id="expiresat"
-                  className="textarea-w text-white bg-green-800 p-3 mb-5 rounded-md"
+                  className="textarea-w text-white w-60 bg-green-800 p-3 mb-5 rounded-md"
                 >
                   <option value="never">Never</option>
                   <option
@@ -226,7 +226,7 @@ const IndexPage = () => {
                   height: 70vh;
                 }
                 .textarea-w {
-                  width: 70vw;
+                  width: 77.5vw;
                 }
               `}</style>
             </div>
