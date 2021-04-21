@@ -11,16 +11,14 @@ export default function Navbar() {
           <a className="inline-flex items-center p-2">
             <img
               src="/paste.png"
-              className="h-8 w-8 mr-2"
+              className="navbar-logo"
               alt="Copy and Paste Logo"
             ></img>
-            <span className="text-xl text-white font-bold uppercase tracking-wide">
-              Paste.sysnomid.com
-            </span>
+            <span className="navbar-brand">Paste.sysnomid.com</span>
           </a>
         </Link>
         <button
-          className="flex ml-2 mt-2 mb-2 md:ml-auto md:w-min bg-gray-600 shadow-2xl w-96 visible p-2 rounded lg:hidden text-white hover:text-white outline-none"
+          className="menu-button"
           onClick={() => {
             setIsOpen(!isOpen);
           }}
@@ -62,10 +60,10 @@ export default function Navbar() {
           <div className="block rounded w-full">
             <div className="flex flex-col lg:hidden xl:hidden pb-3 pt-3 pr-3 pl-3">
               <Link href="/">
-                <a className="flex p-2 rounded">New Paste</a>
+                <a className="navbar-sm-item hover:bg-blue-600">New Paste</a>
               </Link>
               <Link href="/about">
-                <a className="flex p-2 rounded hover:bg-blue-600">About</a>
+                <a className="navbar-sm-item hover:bg-blue-600">About</a>
               </Link>
             </div>
           </div>
