@@ -20,7 +20,7 @@ export default function Navbar() {
           </a>
         </Link>
         <button
-          className="flex ml-2 mt-2 mb-2 bg-gray-600 shadow-2xl w-96 visible p-2 rounded lg:hidden text-white hover:text-white outline-none"
+          className="flex ml-2 mt-2 mb-2 md:ml-auto md:w-min bg-gray-600 shadow-2xl w-96 visible p-2 rounded lg:hidden text-white hover:text-white outline-none"
           onClick={() => {
             setIsOpen(!isOpen);
           }}
