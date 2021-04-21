@@ -8,8 +8,8 @@ import (
 	"os"
 	"time"
 
-	connection "github.com/Sysnomid/paste/backend/connection"
-	models "github.com/Sysnomid/paste/backend/models"
+	connection "github.com/Sysnomid/paste/connection"
+	models "github.com/Sysnomid/paste/models"
 	"github.com/bwmarrin/snowflake"
 	"github.com/labstack/echo/v4"
 )

@@ -13,22 +13,6 @@ body {
   overflow-x: hidden;
 }
 
-.navbar-brand {
-  @apply text-xl text-white font-bold uppercase tracking-wide;
-}
-
-.navbar-logo {
-  @apply h-8 w-8 mr-2;
-}
-
-.menu-button {
-  @apply flex ml-2 mt-2 mb-2 md:ml-auto md:w-min bg-gray-600 shadow-2xl w-96 visible p-2 rounded lg:hidden text-white hover:text-white outline-none;
-}
-
-.navbar-sm-item {
-  @apply flex p-2 rounded;
-}
-
 /* Write your own custom component styles here */
 @layer utilities {
   @variants responsive {

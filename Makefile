@@ -1,6 +1,6 @@
 
 DOCKER_CONTAINER_NAME=sysnomid_paste_server
-UI_DIR=cd ui
+UI_DIR=cd web
 GO_INSTALL=go get ./...
 GO_BUILD=go build -o main
 

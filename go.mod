@@ -1,4 +1,4 @@
-module github.com/Sysnomid/paste/backend
+module github.com/Sysnomid/paste
 
 go 1.16
 
@@ -8,8 +8,7 @@ require (
 	github.com/jackc/pgx/v4 v4.11.0
 	github.com/joho/godotenv v1.3.0
 	github.com/labstack/echo/v4 v4.2.1
-	github.com/mattn/go-colorable v0.1.8 // indirect
+	github.com/labstack/gommon v0.3.0 // indirect
 	golang.org/x/sys v0.0.0-20210412220455-f1c623a9e750 // indirect
 	gopkg.in/guregu/null.v3 v3.5.0
-	gopkg.in/yaml.v2 v2.3.0 // indirect
 )

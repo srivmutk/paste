@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"time"
 
-	connection "github.com/Sysnomid/paste/backend/connection"
-	handlers "github.com/Sysnomid/paste/backend/handlers"
-	models "github.com/Sysnomid/paste/backend/models"
+	connection "github.com/Sysnomid/paste/connection"
+	handlers "github.com/Sysnomid/paste/handlers"
+	models "github.com/Sysnomid/paste/models"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
