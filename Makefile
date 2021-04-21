@@ -16,10 +16,10 @@ server-build: main.go
 server-start: main.go
 	air
 
-ui-install: 
+web-install: 
 	${UI_DIR} && npm i
 
-ui-start:
+web-start:
 	${UI_DIR} && npm run dev
 
 docker:
