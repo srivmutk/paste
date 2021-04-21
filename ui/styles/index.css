@@ -15,10 +15,6 @@ body {
 
 /* Write your own custom component styles here */
 
-/* Start purging... */
-@tailwind utilities;
-/* Stop purging. */
-
 /* Your own custom utilities */
 @layer utilities {
   @variants responsive {
@@ -27,3 +23,7 @@ body {
     }
   }
 }
+
+/* Start purging... */
+@tailwind utilities;
+/* Stop purging. */
