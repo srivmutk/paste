@@ -6,7 +6,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="flex items-center flex-wrap bg-gray-700 p-3 shdaow-3xl">
+      <nav className="flex flex-wrap bg-gray-700 p-3 shdaow-3xl">
         <Link href="/">
           <a className="inline-flex items-center p-2">
             <img
@@ -20,7 +20,7 @@ export default function Navbar() {
           </a>
         </Link>
         <button
-          className="flex flex-row ml-auto md:w-full visible p-2 rounded lg:hidden text-white hover:text-white outline-none"
+          className="flex flex-row ml-2 bg-gray-600 shadow-2xl w-96 visible p-2 rounded lg:hidden text-white hover:text-white outline-none"
           onClick={() => {
             setIsOpen(!isOpen);
           }}
@@ -28,7 +28,7 @@ export default function Navbar() {
           {isOpen === false && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
+              className="h-6 w-6 flex"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
