@@ -62,7 +62,7 @@ export default function Navbar() {
           <div className="block rounded">
             <div className="flex flex-col lg:hidden xl:hidden pb-5 pt-3 pr-3 pl-3">
               <Link href="/">
-                <a className="flex p-2 rounded hover:bg-blue-600">
+                <a className="flex p-2 rounded">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 48 48"
