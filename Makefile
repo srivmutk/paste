@@ -1,26 +1,29 @@
 
 DOCKER_CONTAINER_NAME=sysnomid_paste_server
-UI_DIR=cd web
+WEB_DIR=cd web
 GO_INSTALL=go get ./...
 GO_BUILD=go build -o main
 
 p-install:
-	${GO_INSTALL} && ${UI_DIR} && npm i
+	${GO_INSTALL} && ${WEB_DIR} && npm i
 
-server-install: main.go
-	${GO_INSTALL}
+p-dev:
+	make s-start & make w-start && fg
 
-server-build: main.go
+p-start:
+	make s-build && ./main & make w-build && fg
+
+s-build: main.go
 	${GO_BUILD}
 
-server-start: main.go
+s-start: main.go
 	air
 
-web-install: 
-	${UI_DIR} && npm i
+w-build:
+	${WEB_DIR} && npm run build && npm run start
 
-web-start:
-	${UI_DIR} && npm run dev
+w-start:
+	${WEB_DIR} && npm run dev
 
 docker:
 	docker build -t ${DOCKER_CONTAINER_NAME} . && docker run -dp 4300:4300 ${DOCKER_CONTAINER_NAME}
