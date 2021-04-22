@@ -7,7 +7,7 @@ export default function Footer() {
         <Link href="/">
           <a className="inline-flex items-center p-2 mr-10">
             <span className="text-xl text-white font-bold uppercase tracking-wide">
-              &copy; Sysnomid{new Date().getFullYear()}
+              &copy; Sysnomid {new Date().getFullYear()}
             </span>
           </a>
         </Link>

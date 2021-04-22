@@ -6,11 +6,11 @@ Source code for paste.sysnomid.com, under Apache 2.0 License
 
 #### Backend
 
-- Golang w/Echo and Pgxpool
+- Golang w/ Echo and Pgxpool
 
 ### Frontend
 
-- Next w/Typescript and TailwindCSS
+- Next w/ Typescript and TailwindCSS
 
 ### Setup
 
