@@ -28,7 +28,7 @@ Source code for paste.sysnomid.com, under Apache 2.0 License
 
 API Base Url = ``` https://api.paste.sysnomid.com ```
 
-#### POST https://api.paste.sysnomid.com/p-create
+#### POST ``` https://api.paste.sysnomid.com/p-create ```
 
 **Used to Create a Paste**
 
