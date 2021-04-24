@@ -26,7 +26,7 @@ Source code for https://paste.sysnomid.com, under Apache 2.0 License
 
 #### Docker
 
-Run `make docker` to get a container with the paste API.
+Run `make docker` or `docker build -t sysnomid_paste_server . && docker run -dp 4300:4300 sysnomid_paste_server` to get a container with the paste API.
 
 ### API
 
