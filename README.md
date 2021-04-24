@@ -27,9 +27,9 @@ Source code for paste.sysnomid.com, under Apache 2.0 License
 ### API
 To create a paste with the API, POST to `https://api.paste.sysnomid.com/p-create`.
 
-``` 
-
 Example curl:
+
+``` 
 
 curl --request POST \
   --url https://api.paste.sysnomid.com/p-create \
