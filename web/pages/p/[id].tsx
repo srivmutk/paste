@@ -64,55 +64,94 @@ export default function GetPaste({
 
   const { data: result, error } = useSWR(`${SERVER_URL}/p/${id}`);
 
-  if (error) {
-    <Custom404 />;
+  let parsedData;
+
+  if (result) {
+    parsedData = JSON.parse(JSON.stringify(result));
   }
-
-  console.log(function main() {});
-
-  if (!result) {
-    return <Layout>Loading ...</Layout>;
-  }
-
-  let parsedData = JSON.parse(JSON.stringify(result));
 
   return (
     <>
       <Layout>
         <Head>
-          <title>
-            {parsedData.Title} -{" "}
-            {dayjs(parsedData.CreatedAt).format("MMMM DD, YYYY HH:MM:ss")}
-          </title>
-        </Head>
-        <div className="bg-gray-700 ml-80 mr-80 p-10 bg-center ml-full mr-full w-screen md:w-full sm:w-screen xl:w-full md:rounded-xl xl:rounded-xl rounded-sm shadow-8xl">
-          <div className="flex flex-col">
-            <div className="text-4xl font-black break-words pb-5">
-              {parsedData.Title}
-            </div>
-            <div className="text-1xl break-words italic">
+          {result && (
+            <title>
+              {parsedData.Title} -{" "}
               {dayjs(parsedData.CreatedAt).format("MMMM DD, YYYY HH:MM:ss")}
-            </div>
-          </div>
-        </div>
+            </title>
+          )}
+        </Head>
 
-        <div className="flex flex-row items-center">
-          <div className="break-words mt-10 align-center bg-gray-600 mb-10 bg-center w-auto p-5 h-auto rounded-xl shadow-8xl text-gray-200 mr-5">
-            {parsedData.LanguageDisplayName}
-          </div>
-          <div>
-            <Link href={`${SERVER_URL}/p/${id}/raw`}>
-              <button className="mt-10 ml-auto bg-blue-700 mb-10 bg-center w-auto p-5 sm: h-auto rounded-xl shadow-8xl text-gray-200 whitespace-nowrap">
-                View Raw
-              </button>
-            </Link>
-          </div>
-        </div>
-        <pre className="line-numbers p-10 bg-center w-screen md:w-full sm:w-screen xl:w-full rounded-sm shadow-8xl break-all">
-          <code className={`language-${parsedData.Language}`}>
-            {parsedData.Text}
-          </code>
-        </pre>
+        {/* Handle Errors */}
+        {error && <Custom404 />}
+
+        {/* Handle Loading */}
+        {!result && !error && (
+          <Layout>
+            {" "}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ margin: "auto", background: "none" }}
+              width="100"
+              height="200"
+              display="block"
+              preserveAspectRatio="xMidYMid"
+              viewBox="0 0 100 100"
+            >
+              <circle
+                cx="50"
+                cy="50"
+                r="35"
+                fill="none"
+                stroke="#e15b64"
+                strokeDasharray="164.93361431346415 56.97787143782138"
+                strokeWidth="10"
+              >
+                <animateTransform
+                  attributeName="transform"
+                  dur="1s"
+                  keyTimes="0;1"
+                  repeatCount="indefinite"
+                  type="rotate"
+                  values="0 50 50;360 50 50"
+                ></animateTransform>
+              </circle>
+            </svg>
+          </Layout>
+        )}
+
+        {result && (
+          <>
+            {" "}
+            <div className="bg-gray-700 ml-80 mr-80 p-10 bg-center ml-full mr-full w-screen md:w-full sm:w-screen xl:w-full md:rounded-xl xl:rounded-xl rounded-sm shadow-8xl">
+              <div className="flex flex-col">
+                <div className="text-4xl font-black break-words pb-5">
+                  {parsedData.Title}
+                </div>
+                <div className="text-1xl break-words italic">
+                  {dayjs(parsedData.CreatedAt).format("MMMM DD, YYYY HH:MM:ss")}
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-row items-center">
+              <div className="break-words mt-10 align-center bg-gray-600 mb-10 bg-center w-auto p-5 h-auto rounded-xl shadow-8xl text-gray-200 mr-5">
+                {parsedData.LanguageDisplayName}
+              </div>
+              <div>
+                <Link href={`${SERVER_URL}/p/${id}/raw`}>
+                  <button className="mt-10 ml-auto bg-blue-700 mb-10 bg-center w-auto p-5 sm: h-auto rounded-xl shadow-8xl text-gray-200 whitespace-nowrap">
+                    View Raw
+                  </button>
+                </Link>
+              </div>
+            </div>
+            <pre className="line-numbers p-10 bg-center w-screen md:w-full sm:w-screen xl:w-full rounded-sm shadow-8xl break-all">
+              <code className={`language-${parsedData.Language}`}>
+                {parsedData.Text}
+              </code>
+            </pre>
+          </>
+        )}
       </Layout>
     </>
   );
