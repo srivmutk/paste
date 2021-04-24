@@ -37,11 +37,13 @@ curl --request POST \
   --data '{
         "title": "Untitled",
         "text": "Untitled",
-        "language": "go",
+        "language": "none",
         "expires_at": null
 }'
 
 ```
+
+All fields listed here are required except for ``` expires_at ```
 
 If the request went through without error, you will receive a unique id that you can then access your paste from at ``` https://api.paste.sysnomid.com/p/PASTE_RESPONSE_ID ```.
 
