@@ -24,6 +24,10 @@ Source code for https://paste.sysnomid.com, under Apache 2.0 License
 
 5. For a Development Environment run `make p-dev` or `air & cd web && npm run dev && fg`
 
+#### Docker
+
+Run `make docker` to get a container with the paste API.
+
 ### API
 
 API Base Url = ``` https://api.paste.sysnomid.com ```
@@ -66,7 +70,4 @@ GET ``` https://api.paste.sysnomid.com/p/PASTE_ID ``` for a JSON response body, 
 For example, 
 ``` https://api.paste.sysnomid.com/p/1385764483141472256 ``` and ``` https://api.paste.sysnomid.com/p/1385764483141472256/raw ```
 
-### Docker
-
-Run `make docker` to get a container with the paste API.
 
