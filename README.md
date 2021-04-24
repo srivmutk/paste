@@ -1,6 +1,6 @@
 ## Sysnomid Paste Server
 
-Source code for paste.sysnomid.com, under Apache 2.0 License
+Source code for https://paste.sysnomid.com, under Apache 2.0 License
 
 ### The Stack
 
@@ -62,16 +62,9 @@ Example - ``` 2030-04-23 01:10 ```
 **Used to access pastes**, GET ``` https://api.paste.sysnomid.com/p/PASTE_ID ``` for a JSON response body, or GET ``` https://api.paste.sysnomid.com/p/PASTE_ID/raw ``` for a version in plaintext.
 
 For example, 
-    ``` https://api.paste.sysnomid.com/p/1385764483141472256 ``` 
-    
-and 
-    
-    ``` https://api.paste.sysnomid.com/p/1385764483141472256/raw ```
+``` https://api.paste.sysnomid.com/p/1385764483141472256 ``` and ``` https://api.paste.sysnomid.com/p/1385764483141472256/raw ```
 
 ### Docker
 
 Run `make docker` to get a container with the paste API.
 
-### TODO
-
-- Add a CLI
