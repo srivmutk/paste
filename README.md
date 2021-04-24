@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Sysnomid/paste/master/web/public/meta.png" width="500" height="250" />
+
 ## Sysnomid Paste Server
 
 Source code for https://paste.sysnomid.com, under Apache 2.0 License
