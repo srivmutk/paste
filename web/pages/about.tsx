@@ -7,10 +7,13 @@ export default function AboutPage() {
       <Layout>
         <div className="text-5xl text-blue-300 p-2 pb-5">About</div>
         <div>
-          <div className="text-2xl pb-10">
+          <div className="text-2xl">
             <div>
               A simple pastebin created by{" "}
-              <a href="https://sysnomid.com">Sysnomid</a>.
+              <a href="https://sysnomid.com" className="underline">
+                Sysnomid
+              </a>
+              .
             </div>
             <a href="https://github.com/Sysnomid/paste" className="underline">
               Github

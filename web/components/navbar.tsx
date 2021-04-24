@@ -13,7 +13,7 @@ const NavbarItem = ({ link, sm, children }: NavbarProps) => {
       {sm && (
         <>
           <Link href={link}>
-            <a className="p-2 rounded bg-gray-600 mb-2">{children}</a>
+            <a className="p-2 rounded mb-2">{children}</a>
           </Link>
         </>
       )}
@@ -96,6 +96,12 @@ export default function Navbar() {
               <NavbarItem link="/about" sm={true}>
                 About
               </NavbarItem>
+              <NavbarItem
+                link="https://github.com/Sysnomid/paste#api"
+                sm={true}
+              >
+                API
+              </NavbarItem>
             </div>
           </div>
         )}
@@ -114,6 +120,9 @@ export default function Navbar() {
             </NavbarItem>
             <NavbarItem link="/about" sm={false}>
               About
+            </NavbarItem>
+            <NavbarItem link="https://github.com/Sysnomid/paste#api" sm={false}>
+              API
             </NavbarItem>
           </div>
         </div>
