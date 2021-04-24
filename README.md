@@ -4,7 +4,7 @@ Source code for https://paste.sysnomid.com, under Apache 2.0 License
 
 ### The Stack
 
-#### Backend
+### Backend
 
 - Golang w/ Echo and Pgxpool
 
@@ -30,7 +30,7 @@ API Base Url = ``` https://api.paste.sysnomid.com ```
 
 #### POST ``` https://api.paste.sysnomid.com/p-create ```
 
-**Used to Create a Paste**
+Used to Create a Paste.
 
 Example curl:
 
@@ -59,7 +59,9 @@ Example - ``` 2030-04-23 01:10 ```
 
 #### GET ``` https://api.paste.sysnomid.com/p/ ```
 
-**Used to access pastes**, GET ``` https://api.paste.sysnomid.com/p/PASTE_ID ``` for a JSON response body, or GET ``` https://api.paste.sysnomid.com/p/PASTE_ID/raw ``` for a version in plaintext.
+Used to access pastes.
+
+GET ``` https://api.paste.sysnomid.com/p/PASTE_ID ``` for a JSON response body, or GET ``` https://api.paste.sysnomid.com/p/PASTE_ID/raw ``` for a version in plaintext.
 
 For example, 
 ``` https://api.paste.sysnomid.com/p/1385764483141472256 ``` and ``` https://api.paste.sysnomid.com/p/1385764483141472256/raw ```
