@@ -10,7 +10,7 @@ Source code for https://paste.sysnomid.com, under Apache 2.0 License
 
 ### Frontend
 
-- Typescript w/ NextJS, TailwindCSS, SWR and React-Hook-Form
+- Typescript w/ NextJS, TailwindCSS, PrismJS, SWR and React-Hook-Form
 
 ### Setup
 
