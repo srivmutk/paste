@@ -1,9 +1,10 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Sysnomid/paste/master/web/public/meta.png" width="500" height="250" />
+  <img src="https://raw.githubusercontent.com/Sysnomid/paste/master/web/public/paste.png" width="200" height="200" />
 
-  ## Sysnomid Paste Server
+## Sysnomid Paste Server
 
-  Source code for https://paste.sysnomid.com, under Apache 2.0 License
+Source code for https://paste.sysnomid.com, under Apache 2.0 License
+
 </div>
 
 ### The Stack
@@ -34,15 +35,15 @@ Run `make docker` or `docker build -t sysnomid_paste_server . && docker run -dp 
 
 ### API
 
-API Base Url = ``` https://api.paste.sysnomid.com ```
+API Base Url = `https://api.paste.sysnomid.com`
 
-#### POST ``` https://api.paste.sysnomid.com/p-create ```
+#### POST `https://api.paste.sysnomid.com/p-create`
 
 Used to Create a Paste.
 
 Example curl:
 
-``` 
+```
 
 curl --request POST \
   --url https://api.paste.sysnomid.com/p-create \
@@ -56,22 +57,20 @@ curl --request POST \
 
 ```
 
-All fields listed here are required except for ``` expires_at ```.
+All fields listed here are required except for `expires_at`.
 
 If the request went through without error, you will receive a unique id that you can then access your paste from.
 
-List of supported languages are available at ``` https://api.paste.sysnomid.com/langs ```
+List of supported languages are available at `https://api.paste.sysnomid.com/langs`
 
-To specify an expiry date, use the ``` TIMESTAMP WITH TIME ZONE ``` format, (https://www.postgresql.org/docs/9.1/datatype-datetime.html)
-Example - ``` 2030-04-23 01:10 ```
+To specify an expiry date, use the `TIMESTAMP WITH TIME ZONE` format, (https://www.postgresql.org/docs/9.1/datatype-datetime.html)
+Example - `2030-04-23 01:10`
 
-#### GET ``` https://api.paste.sysnomid.com/p/ ```
+#### GET `https://api.paste.sysnomid.com/p/`
 
 Used to access pastes.
 
-GET ``` https://api.paste.sysnomid.com/p/PASTE_ID ``` for a JSON response body, or GET ``` https://api.paste.sysnomid.com/p/PASTE_ID/raw ``` for a version in plaintext.
+GET `https://api.paste.sysnomid.com/p/PASTE_ID` for a JSON response body, or GET `https://api.paste.sysnomid.com/p/PASTE_ID/raw` for a version in plaintext.
 
-For example, 
-``` https://api.paste.sysnomid.com/p/1385764483141472256 ``` and ``` https://api.paste.sysnomid.com/p/1385764483141472256/raw ```
-
-
+For example,
+`https://api.paste.sysnomid.com/p/1385764483141472256` and `https://api.paste.sysnomid.com/p/1385764483141472256/raw`
