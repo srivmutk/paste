@@ -82,10 +82,10 @@ export default function GetPaste({
           )}
         </Head>
 
-        {/* Handle Errors */}
+        {/*  Handle Errors  */}
         {error && <Custom404 />}
 
-        {/* Handle Loading */}
+        {/*  Handle Loading  */}
         {!result && !error && (
           <Layout>
             {" "}
