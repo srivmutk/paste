@@ -74,7 +74,7 @@ func GetRawPaste(c echo.Context) (err error) {
 
 // GetLanguages ... Get all of the supported languages
 func GetLanguages(c echo.Context) (err error) {
-	rows, err := connection.Conn.Query(context.Background(), "SELECT * FROM languages")
+	rows, err := connection.Conn.Query(context.Background(), "SELECT * FROM languages;")
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -66,11 +66,8 @@ List of supported languages are available at `https://api.paste.sysnomid.com/lan
 To specify an expiry date, use the `TIMESTAMP WITH TIME ZONE` format, (https://www.postgresql.org/docs/9.1/datatype-datetime.html)
 Example - `2030-04-23 01:10`
 
-#### GET `https://api.paste.sysnomid.com/p/`
+#### GET `https://api.paste.sysnomid.com/p/:id`
 
 Used to access pastes.
 
-GET `https://api.paste.sysnomid.com/p/PASTE_ID` for a JSON response body, or GET `https://api.paste.sysnomid.com/p/PASTE_ID/raw` for a version in plaintext.
-
-For example,
-`https://api.paste.sysnomid.com/p/1385764483141472256` and `https://api.paste.sysnomid.com/p/1385764483141472256/raw`
+GET `https://api.paste.sysnomid.com/p/:id` for a JSON response body, or GET `https://api.paste.sysnomid.com/p/:id/raw` for a version in plaintext.
