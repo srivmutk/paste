@@ -35,16 +35,15 @@ Run `make docker` or `docker build -t sysnomid_paste_server . && docker run -dp 
 
 ### API
 
-API Base Url = `https://api.paste.sysnomid.com`
+API Base URL = `https://api.paste.sysnomid.com`
 
 #### POST `https://api.paste.sysnomid.com/p-create`
 
 Used to Create a Paste.
 
-Example curl:
+Example cURL:
 
 ```
-
 curl --request POST \
   --url https://api.paste.sysnomid.com/p-create \
   --header 'Content-Type: application/json' \
@@ -54,7 +53,6 @@ curl --request POST \
         "language": "none",
         "expires_at": null
 }'
-
 ```
 
 All fields listed here are required except for `expires_at`.
@@ -68,6 +66,20 @@ Example - `2030-04-23 01:10`
 
 #### GET `https://api.paste.sysnomid.com/p/:id`
 
-Used to access pastes.
+Used to access pastes and their associated data in JSON.
 
-GET `https://api.paste.sysnomid.com/p/:id` for a JSON response body, or GET `https://api.paste.sysnomid.com/p/:id/raw` for a version in plaintext.
+Example Response:
+
+```
+{
+ "ID": 10765432100123456789,
+ "Title": "Untitled",
+ "CreatedAt": "2021-04-18T19:45:01.406173Z",
+ "Language": "none",
+ "LanguageDisplayName": "Plaintext"
+}
+```
+
+#### GET `https://api.paste.sysnomid.com/p/:id/raw`
+
+Used to get the body of a paste in plaintext.
