@@ -7,7 +7,7 @@ Source code for https://paste.sysnomid.com, under Apache 2.0 License
 
 </div>
 
-### The Stack
+### Stack
 
 ### Backend
 
