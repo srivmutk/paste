@@ -4,10 +4,19 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Head from "next/head";
 import { SWRConfig } from "swr";
+import React from "react";
 
 const SERVER_URL = process.env.SERVER_URL as string;
 
 const App = ({ Component, pageProps }: AppProps) => {
+  
+  let title; 
+
+  React.useEffect(() => {
+    title = document.title
+    console.log(title)
+  });
+
   return (
     <>
       <html lang="en">
@@ -41,9 +50,9 @@ const App = ({ Component, pageProps }: AppProps) => {
                 crossOrigin="anonymous"
               ></link>
               <title>paste.sysnomid.com</title>
-              <meta name="title" content="paste.sysnomid.com" />
+              <meta name="title" content={title} />
               <meta name="description" content="Paste by Sysnomid" />
-              <meta name="og:title" content="paste.sysnomid.com" />
+              <meta name="og:title" content={title} />
               <meta name="og:description" content="Paste by Sysnomid" />
               <meta
                 name="image"

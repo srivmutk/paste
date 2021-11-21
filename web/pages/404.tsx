@@ -6,7 +6,7 @@ export default function Custom404() {
     <>
       <Layout>
         <Head>
-          <title>404 Not Found - paste.sysnomid.com</title>
+          <title>404 Not Found</title>
         </Head>
         <div className="pb-96">
           <h1 className="text-9xl">404</h1>
