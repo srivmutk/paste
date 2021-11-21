@@ -49,7 +49,7 @@ const App = ({ Component, pageProps }: AppProps) => {
                 as="fetch"
                 crossOrigin="anonymous"
               ></link>
-              <title>paste.sysnomid.com</title>
+             
               <meta name="title" content={title} />
               <meta name="description" content="Paste by Sysnomid" />
               <meta name="og:title" content={title} />
