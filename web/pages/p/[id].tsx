@@ -74,12 +74,23 @@ export default function GetPaste({
     <>
       <Layout>
         <Head>
-          {result && (
+          {result && <>
             <title>
               {parsedData.Title} -{" "}
               {dayjs(parsedData.CreatedAt).format("MMMM DD, YYYY HH:MM:ss")}
             </title>
-          )}
+            <meta name="og:title" content={ parsedData.Title + "-" + dayjs(parsedData.CreatedAt).format("MMMM DD, YYYY HH:MM:ss")} />
+            <meta name="title" content={  parsedData.Title + "-" + dayjs(parsedData.CreatedAt).format("MMMM DD, YYYY HH:MM:ss")} />
+            <meta name="description" content="Paste by Sysnomid" />
+            <meta
+                name="image"
+                content="https://paste.sysnomid.com/meta.png"
+              />
+              <meta
+                name="og:image"
+                content="https://paste.sysnomid.com/meta.png"
+              />
+          </>}
         </Head>
 
         {/*  Handle Errors  */}
