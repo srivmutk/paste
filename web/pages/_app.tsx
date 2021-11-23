@@ -20,7 +20,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         } else {
           setTimeout(() => {
             checkVar()
-          }, 100);
+          }, 10);
         }
       }
 
