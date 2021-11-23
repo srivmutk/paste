@@ -60,7 +60,7 @@ const App = ({ Component, pageProps }: AppProps) => {
                 crossOrigin="anonymous"
               ></link>
              
-              {/* <meta name="title" content={title} />
+              <meta name="title" content={title} />
               <meta name="description" content="Paste by Sysnomid" />
               <meta name="og:title" content={title} />
               <meta name="og:description" content="Paste by Sysnomid" />
@@ -71,7 +71,7 @@ const App = ({ Component, pageProps }: AppProps) => {
               <meta
                 name="og:image"
                 content="https://paste.sysnomid.com/meta.png"
-              /> */}
+              />
             </Head>
             <Navbar />
             <Component {...pageProps} />
