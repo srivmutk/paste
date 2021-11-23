@@ -4,23 +4,23 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Head from "next/head";
 import { SWRConfig } from "swr";
-import React from "react";
+import React, { useState } from "react";
 
 const SERVER_URL = process.env.SERVER_URL as string;
 
 const App = ({ Component, pageProps }: AppProps) => {
-  
-  let title; 
+
+  const [title, setTitle] = useState("");
 
   React.useEffect(() => {
-      const checkVar = async () => {
+      const checkVar = () => {
         if (document.title !== ""){
-          title = document.title
+          setTitle((document.title).toString())
           console.log(title)
         } else {
           setTimeout(() => {
             checkVar()
-          }, 10);
+          }, 100);
         }
       }
 
