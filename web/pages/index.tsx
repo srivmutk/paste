@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import useSWR from "swr";
 import Custom500 from "./500";
+import Head from "next/head";
 
 dayjs.extend(utc);
 
@@ -56,6 +57,9 @@ const IndexPage = () => {
     return (
       <>
         <Layout>
+          <Head>
+            <title>Home</title>
+          </Head>
           {" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"

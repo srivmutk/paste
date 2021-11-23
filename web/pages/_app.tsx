@@ -13,13 +13,23 @@ const App = ({ Component, pageProps }: AppProps) => {
   let title; 
 
   React.useEffect(() => {
-    title = document.title
-    console.log(title)
-  });
+      const checkVar = async () => {
+        if (document.title !== ""){
+          title = document.title
+          console.log(title)
+        } else {
+          setTimeout(() => {
+            checkVar()
+          }, 10);
+        }
+      }
+
+      checkVar()
+  }, []);
 
   return (
-    <>
       <html lang="en">
+        
         <SWRConfig
           value={{
             refreshInterval: 3000,
@@ -69,7 +79,6 @@ const App = ({ Component, pageProps }: AppProps) => {
           </div>
         </SWRConfig>
       </html>
-    </>
   );
 };
 
