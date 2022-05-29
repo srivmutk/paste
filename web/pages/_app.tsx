@@ -10,7 +10,7 @@ const SERVER_URL = process.env.SERVER_URL as string;
 
 const App = ({ Component, pageProps }: AppProps) => {
 
-  const [title, setTitle] = useState("Paste.Sysnomid");
+  const [title, setTitle] = useState("");
 
   React.useEffect(() => {
       const checkVar = () => {
