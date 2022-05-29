@@ -25,6 +25,8 @@ const App = ({ Component, pageProps }: AppProps) => {
       }
 
       checkVar()
+
+      setTitle(document.title)
   }, []);
 
   return (
