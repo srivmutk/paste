@@ -13,18 +13,18 @@ const App = ({ Component, pageProps }: AppProps) => {
   const [title, setTitle] = useState("");
 
   React.useEffect(() => {
-      const checkVar = () => {
-        if (document.title !== ""){
-          setTitle((document.title).toString())
-          console.log(title)
-        } else {
-          setTimeout(() => {
-            checkVar()
-          }, 0);
-        }
-      }
+      // const checkVar = () => {
+      //   if (document.title !== ""){
+      //     setTitle((document.title).toString())
+      //     console.log(title)
+      //   } else {
+      //     setTimeout(() => {
+      //       checkVar()
+      //     }, 0);
+      //   }
+      // }
 
-      checkVar()
+      // checkVar()
 
       setTitle(document.title)
   }, []);
