@@ -26,6 +26,6 @@ w-start:
 	${WEB_DIR} && npm run dev
 
 docker:
-	docker build -t ${DOCKER_CONTAINER_NAME} . && docker run -dp 4300:4300 ${DOCKER_CONTAINER_NAME}
+	docker build -t ${DOCKER_CONTAINER_NAME} . && docker run -dp 127.0.0.1:4300:4300 ${DOCKER_CONTAINER_NAME}
 
 
