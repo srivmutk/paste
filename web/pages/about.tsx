@@ -13,13 +13,9 @@ export default function AboutPage() {
         <div>
           <div className="text-2xl">
             <div>
-              A simple pastebin created by{" "}
-              <a href="https://sysnomid.com" className="underline">
-                Sysnomid
-              </a>
-              .
+              A simple pastebin created by.
             </div>
-            <a href="https://github.com/Sysnomid/paste" className="underline">
+            <a href="https://github.com/srivmutk/paste" className="underline">
               Github
             </a>
           </div>
