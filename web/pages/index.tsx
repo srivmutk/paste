@@ -246,7 +246,7 @@ const IndexPage = () => {
                 <textarea
                   {...register("Text", { required: true })}
                   spellCheck="false"
-                  placeholder="fmt.Println('Placeholder Stuff)'"
+                  placeholder="Place text here ..."
                   className="text-white textarea-c w-full textarea-h text-md p-10 rounded-xl"
                 ></textarea>
               </pre>
