@@ -44,7 +44,7 @@ export default function Navbar() {
               alt="Copy and Paste Logo"
             ></img>
             <span className="text-xl text-white font-bold uppercase tracking-wide">
-              Paste.sysnomid.com
+              Paste
             </span>
           </a>
         </Link>
