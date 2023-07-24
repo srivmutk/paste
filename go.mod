@@ -1,4 +1,4 @@
-module github.com/Sysnomid/paste
+module github.com/srivmutk/paste
 
 go 1.16
 
