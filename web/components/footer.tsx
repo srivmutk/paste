@@ -7,7 +7,7 @@ export default function Footer() {
         <Link href="/">
           <a className="inline-flex items-center p-2 mr-10">
             <span className="text-xl text-white font-bold uppercase tracking-wide">
-              &copy; Sysnomid {new Date().getFullYear()}
+              &copy; {new Date().getFullYear()}
             </span>
           </a>
         </Link>
@@ -19,7 +19,7 @@ export default function Footer() {
               </a>
             </Link>
             <a
-              href="https://github.com/Sysnomid/paste"
+              href="https://github.com/srivmutk/paste"
               className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white items-center justify-center hover:bg-blue-600 hover:text-white"
             >
               Source Code
