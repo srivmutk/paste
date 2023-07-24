@@ -1,9 +1,7 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/Sysnomid/paste/master/web/public/paste.png" width="200" height="200" />
 
-## Sysnomid Paste Server
-
-Source code for https://paste.sysnomid.com, under Apache 2.0 License
+## Simple Paste Server
 
 </div>
 
@@ -65,7 +63,7 @@ To specify an expiry date, use the `TIMESTAMP WITH TIME ZONE` format, (https://w
 
 Example - `2030-04-23 01:10`
 
-#### GET `https://api.paste.sysnomid.com/p/:id`
+#### GET `/p/:id`
 
 Used to access pastes and their associated data in JSON.
 
@@ -81,6 +79,6 @@ Example Response:
 }
 ```
 
-#### GET `https://api.paste.sysnomid.com/p/:id/raw`
+#### GET `/p/:id/raw`
 
 Used to get the body of a paste in plaintext.
