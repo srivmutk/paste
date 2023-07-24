@@ -121,7 +121,7 @@ export default function Navbar() {
             <NavbarItem link="/about" sm={false}>
               About
             </NavbarItem>
-            <NavbarItem link="https://github.com/Sysnomid/paste#api" sm={false}>
+            <NavbarItem link="https://github.com/srivmutk/paste#api" sm={false}>
               API
             </NavbarItem>
           </div>
