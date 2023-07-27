@@ -13,11 +13,6 @@ export default function Footer() {
         </Link>
         <div className="w-full lg:inline-flex lg:flex-grow lg:w-auto">
           <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
-            <Link href="https://sysnomid.com">
-              <a className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white items-center justify-center hover:bg-blue-600 hover:text-white">
-                sysnomid.com
-              </a>
-            </Link>
             <a
               href="https://github.com/srivmutk/paste"
               className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white items-center justify-center hover:bg-blue-600 hover:text-white"
