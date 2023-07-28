@@ -41,23 +41,11 @@ Used to Create a Paste.
 
 Example cURL:
 
-```
-curl --request POST \
-  --url https://api.paste.sysnomid.com/p-create \
-  --header 'Content-Type: application/json' \
-  --data '{
-        "title": "Untitled",
-        "text": "Untitled",
-        "language": "none",
-        "expires_at": null
-}'
-```
-
-All fields listed here are required except for `expires_at`.
+All fields listed are required except for `expires_at`.
 
 If the request went through without error, you will receive a unique id that you can then access your paste from.
 
-List of supported languages are available at `https://api.paste.sysnomid.com/langs`
+List of supported languages are available at `create.sql`
 
 To specify an expiry date, use the `TIMESTAMP WITH TIME ZONE` format, (https://www.postgresql.org/docs/9.1/datatype-datetime.html)
 
