@@ -1,5 +1,5 @@
 
-DOCKER_CONTAINER_NAME=sysnomid_paste_server
+DOCKER_CONTAINER_NAME=paste_server
 WEB_DIR=cd web
 GO_INSTALL=go get ./...
 GO_BUILD=go build -o main
