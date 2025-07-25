@@ -4,11 +4,11 @@ import (
 	"net/http"
 	"time"
 
-	connection "github.com/Sysnomid/paste/connection"
-	handlers "github.com/Sysnomid/paste/handlers"
-	models "github.com/Sysnomid/paste/models"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	connection "github.com/srivmutk/paste/connection"
+	handlers "github.com/srivmutk/paste/handlers"
+	models "github.com/srivmutk/paste/models"
 )
 
 func main() {
@@ -46,7 +46,7 @@ func main() {
 	e.Use(middleware.RateLimiterWithConfig(config))
 
 	e.GET("/", func(c echo.Context) (err error) {
-		return c.JSON(http.StatusOK, "paste.sysnomid.com API")
+		return c.JSON(http.StatusOK, "paste API")
 	})
 	e.POST("/p-create", handlers.CreatePaste)
 	e.GET("/p/:id", handlers.GetPaste)
