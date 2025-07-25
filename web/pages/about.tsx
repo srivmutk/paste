@@ -13,7 +13,7 @@ export default function AboutPage() {
         <div>
           <div className="text-2xl">
             <div>
-              A simple pastebin created by.
+              A simple pastebin.
             </div>
             <a href="https://github.com/srivmutk/paste" className="underline">
               Github
