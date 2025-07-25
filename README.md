@@ -19,7 +19,7 @@
 
 1. Get PostgreSQL setup
 
-2. Rename .env.example to .env, and change `DATABASE_URL` to your Postgres connection DSN, and `SERVER_URL`, to what URL you plan to access the API from, for example `api.paste.sysnomid.com`.
+2. Rename .env.example to .env, and change `DATABASE_URL` to your Postgres connection DSN, and `SERVER_URL`, to what URL you plan to access the API from.
 
 3. Get Golang and NodeJS setup, and then run `make p-install` or `go get ./... && cd web && npm i`.
 
@@ -29,13 +29,9 @@
 
 #### Docker
 
-Run `make docker` or `docker build -t sysnomid_paste_server . && docker run -dp 4300:4300 sysnomid_paste_server` to get a container with the paste API.
+Run `make docker` or `docker build -t paste_server . && docker run -dp 4300:4300 paste_server` to get a container with the paste API.
 
-### API
-
-API Base URL = `https://api.paste.sysnomid.com`
-
-#### POST `https://api.paste.sysnomid.com/p-create`
+#### POST `/p-create`
 
 Used to Create a Paste.
 
